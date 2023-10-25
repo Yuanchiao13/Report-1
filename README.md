@@ -5,4 +5,6 @@
 1、首先将 TensorFlow 導入程序：
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/1698201427621.jpg)
 2、加载 MNIST 數據集。將樣本數據從整數轉換為浮點數：
-! mnist = tf.keras.datasets.mnist
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/2.jpg)
+3、通過堆疊層来構建 tf.keras.Sequential 模型。
+![image](
