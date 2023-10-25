@@ -17,4 +17,7 @@
 7、此损失等於 true 類的負對數概率：如果模型确定類正确，则损失為零。這個未經訓练的模型给出的概率接近隨機（每個類為 1/10），因此初始损失應該接近 -tf.math.log(1/10) ~= 2.3。
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/7.jpg)
 8、在开始训练之前，使用 Keras Model.compile 配置和編譯模型。将 optimizer 類設置為 adam，将 loss 设置為您之前定義的 loss_fn 函数，並通過将 metrics 參數设置為 accuracy 来指定要為模型评估的指標。
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/8.jpg)
+9、使用 Model.fit 方法调整模型参数並最小化损失：
 ![image](
+
