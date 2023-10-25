@@ -11,4 +11,6 @@
 4、對於每个样本，模型都會返回一个包含 logits 或 log-odds 分数的向量，每個類一個。
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/4.jpg)
 5、tf.nn.softmax 函数將這些 logits 轉換為每個類的概率：
-![image]
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/5.jpg)
+6、使用 losses.SparseCategoricalCrossentropy 為训练定義损失函数，它會接受 logits 向量和 True 索引，並為每个樣本返回一个標量损失。
+![image](
