@@ -13,4 +13,6 @@
 5、tf.nn.softmax 函数將這些 logits 轉換為每個類的概率：
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/5.jpg)
 6、使用 losses.SparseCategoricalCrossentropy 為训练定義损失函数，它會接受 logits 向量和 True 索引，並為每个樣本返回一个標量损失。
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/6.jpg)
+7、此损失等於 true 類的負對數概率：如果模型确定類正确，则损失為零。這個未經訓练的模型给出的概率接近隨機（每個類為 1/10），因此初始损失應該接近 -tf.math.log(1/10) ~= 2.3。
 ![image](
