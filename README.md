@@ -23,5 +23,7 @@
 10、Model.evaluate 通常會在 "Validation-set" 或 "Test-set" 上檢查模型的性能。
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/10.jpg)
 11、在完成上述的步驟後這個照片分類器的准确度已经達到 98%。這個機械學習模型也完成了
+##參考資料:https://tensorflow.google.cn/tutorials/quickstart/beginner?hl=zh_cn
+
 
 
