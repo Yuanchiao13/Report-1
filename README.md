@@ -7,4 +7,5 @@
 2、加载 MNIST 數據集。將樣本數據從整數轉換為浮點數：
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/2.jpg)
 3、通過堆疊層来構建 tf.keras.Sequential 模型。
-![image](
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/3.jpg)
+4、對於每个样本，模型都會返回一个包含 logits 或 log-odds 分数的向量，每個類一個。
