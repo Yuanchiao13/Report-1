@@ -9,3 +9,6 @@
 3、通過堆疊層来構建 tf.keras.Sequential 模型。
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/3.jpg)
 4、對於每个样本，模型都會返回一个包含 logits 或 log-odds 分数的向量，每個類一個。
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/4.jpg)
+5、tf.nn.softmax 函数將這些 logits 轉換為每個類的概率：
+![image]
