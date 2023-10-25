@@ -20,5 +20,6 @@
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/8.jpg)
 9、使用 Model.fit 方法调整模型参数並最小化损失：
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/9.jpg)
-10、Model.evaluate 方法通常在 "Validation-set" 或 "Test-set" 上检查模型性能。
+10、Model.evaluate 通常會在 "Validation-set" 或 "Test-set" 上檢查模型的性能。
+![image](https://github.com/Yuanchiao13/Report-1/blob/main/10.jpg)
 
