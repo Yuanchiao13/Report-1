@@ -56,8 +56,14 @@ model.compile(optimizer='adam',
 ```
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/8.jpg)
 9、使用 Model.fit 方法调整模型参数並最小化损失：
+```python
+model.fit(x_train, y_train, epochs=5)
+```
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/9.jpg)
-10、Model.evaluate 通常會在 "Validation-set" 或 "Test-set" 上檢查模型的性能。
+10、Model.evaluate 通常會在 "Validation-set" 或 "Test-set" 上檢查模型的性能:
+```python
+model.evaluate(x_test,  y_test, verbose=2)
+```
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/10.jpg)
 11、在完成上述的步驟後這個照片分類器的准确度已经達到 98%。這個機械學習模型也完成了
 ##參考資料:https://tensorflow.google.cn/tutorials/quickstart/beginner?hl=zh_cn
