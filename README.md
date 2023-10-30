@@ -14,11 +14,28 @@ import tensorflow as tf
 mnist = tf.keras.datasets.mnist
 ```
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/2.jpg)
-3、通過堆疊層来構建 tf.keras.Sequential 模型。
+3、通過堆疊層来構建 tf.keras.Sequential 模型:
+
+```python
+model = tf.keras.models.Sequential([
+  tf.keras.layers.Flatten(input_shape=(28, 28)),
+  tf.keras.layers.Dense(128, activation='relu'),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(10)
+])
+```
+
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/3.jpg)
-4、對於每个样本，模型都會返回一个包含 logits 或 log-odds 分数的向量，每個類一個。
+4、對於每个样本，模型都會返回一个包含 logits 或 log-odds 分数的向量，每個類一個:
+```python
+predictions = model(x_train[:1]).numpy()
+predictions
+```
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/4.jpg)
 5、tf.nn.softmax 函数將這些 logits 轉換為每個類的概率：
+```python
+tf.nn.softmax(predictions).numpy()
+```
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/5.jpg)
 6、使用 losses.SparseCategoricalCrossentropy 為训练定義损失函数，它會接受 logits 向量和 True 索引，並為每个樣本返回一个標量损失。
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/6.jpg)
