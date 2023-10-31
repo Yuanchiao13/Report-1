@@ -13,11 +13,17 @@ import tensorflow as tf
 ```
 
 ![image](https://github.com/Yuanchiao13/Report-1/blob/main/1698201427621.jpg)
+
 2、加载 MNIST 數據集。將樣本數據從整數轉換為浮點數：
 ```python
 mnist = tf.keras.datasets.mnist
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/2.jpg)
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+11490434/11490434 [==============================] - 1s 0us/step
+
 3、通過堆疊層来構建 tf.keras.Sequential 模型:
 
 ```python
@@ -34,12 +40,18 @@ model = tf.keras.models.Sequential([
 ```python
 predictions = model(x_train[:1]).numpy()
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/4.jpg)
+array([[-0.40544653,  0.21649133,  0.21764778, -0.4033628 ,  0.1971823 ,
+        -0.967962  ,  0.21890277, -0.55331427, -0.25738302, -1.103743  ]],
+      dtype=float32)
+      
 5、tf.nn.softmax 函数將這些 logits 轉換為每個類的概率：
 ```python
 tf.nn.softmax(predictions).numpy()
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/5.jpg)
+array([[0.07991948, 0.14885277, 0.149025  , 0.08008619, 0.14600612,
+        0.04553604, 0.14921214, 0.06893417, 0.09267356, 0.03975451]],
+      dtype=float32)
+      
 6、使用 losses.SparseCategoricalCrossentropy 為训练定義损失函数，它會接受 logits 向量和 True 索引，並為每个樣本返回一个標量损失:
 ```python
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
@@ -50,7 +62,8 @@ loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 ```python
 loss_fn(y_train[:1], predictions).numpy()
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/7.jpg)
+3.089251
+
 8、在开始训练之前，使用 Keras Model.compile 配置和編譯模型。将 optimizer 類設置為 adam，将 loss 设置為您之前定義的 loss_fn 函数，並通過将 metrics 參數设置為 accuracy 来指定要為模型评估的指標:
 ```python
 model.compile(optimizer='adam',
@@ -63,12 +76,25 @@ model.compile(optimizer='adam',
 ```python
 model.fit(x_train, y_train, epochs=5)
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/9.jpg)
+Epoch 1/5
+1875/1875 [==============================] - 11s 5ms/step - loss: 0.2951 - accuracy: 0.9143
+Epoch 2/5
+1875/1875 [==============================] - 9s 5ms/step - loss: 0.1450 - accuracy: 0.9577
+Epoch 3/5
+1875/1875 [==============================] - 10s 5ms/step - loss: 0.1090 - accuracy: 0.9664
+Epoch 4/5
+1875/1875 [==============================] - 10s 5ms/step - loss: 0.0887 - accuracy: 0.9725
+Epoch 5/5
+1875/1875 [==============================] - 10s 5ms/step - loss: 0.0760 - accuracy: 0.9763
+<keras.src.callbacks.History at 0x78e24aa04eb0>
+
 10、Model.evaluate 通常會在 "Validation-set" 或 "Test-set" 上檢查模型的性能:
 ```python
 model.evaluate(x_test,  y_test, verbose=2)
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/10.jpg)
+313/313 - 1s - loss: 0.0723 - accuracy: 0.9774 - 1s/epoch - 4ms/step
+[0.07230165600776672, 0.977400004863739]
+
 11、在完成上述的步驟後這個照片分類器的准确度已经達到 98%。這個機械學習模型也完成了
 
 ##參考資料:https://tensorflow.google.cn/tutorials/quickstart/beginner?hl=zh_cn
