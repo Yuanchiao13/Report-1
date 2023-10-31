@@ -12,8 +12,6 @@
 import tensorflow as tf
 ```
 
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/1698201427621.jpg)
-
 2、加载 MNIST 數據集。將樣本數據從整數轉換為浮點數：
 ```python
 mnist = tf.keras.datasets.mnist
@@ -35,7 +33,6 @@ model = tf.keras.models.Sequential([
 ])
 ```
 
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/3.jpg)
 4、對於每个样本，模型都會返回一个包含 logits 或 log-odds 分数的向量，每個類一個:
 ```python
 predictions = model(x_train[:1]).numpy()
@@ -56,7 +53,7 @@ array([[0.07991948, 0.14885277, 0.149025  , 0.08008619, 0.14600612,
 ```python
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/6.jpg)
+
 7、此损失等於 true 類的負對數概率：如果模型确定類正确，则损失為零。這個未經訓练的模型给出的概率接近隨機（每個類為 1/10），因此初始损失應該接近 -tf.math.log(1/10) ~= 2.3:
 
 ```python
@@ -71,7 +68,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
      
 ```
-![image](https://github.com/Yuanchiao13/Report-1/blob/main/8.jpg)
+
 9、使用 Model.fit 方法调整模型参数並最小化损失：
 ```python
 model.fit(x_train, y_train, epochs=5)
